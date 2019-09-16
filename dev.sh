@@ -12,12 +12,16 @@ fi
 #you may change yourself
 HOMEBREW_PREFIX=$(type brew >/dev/null 2>&1 && brew --prefix 2>/dev/null)
 if [[ ! -z "$HOMEBREW_PREFIX" ]]; then
-  SNAPPY_DIR=$HOMEBREW_PREFIX/opt/snappy
-  LEVELDB_DIR=$HOMEBREW_PREFIX/opt/leveldb
+  #SNAPPY_DIR=$HOMEBREW_PREFIX/opt/snappy
+  #LEVELDB_DIR=$HOMEBREW_PREFIX/opt/leveldb
+  SNAPPY_DIR=$LEDISTOP/tools/lib/snappy
+  LEVELDB_DIR=$LEDISTOP/tools/lib/leveldb
   ROCKSDB_DIR=$HOMEBREW_PREFIX/opt/rocksdb
 else
-  SNAPPY_DIR=/usr/local/snappy
-  LEVELDB_DIR=/usr/local/leveldb
+  #SNAPPY_DIR=/usr/local/snappy
+  #LEVELDB_DIR=/usr/local/leveldb
+  SNAPPY_DIR=$LEDISTOP/tools/lib/snappy
+  LEVELDB_DIR=$LEDISTOP/tools/lib/leveldb
   ROCKSDB_DIR=/usr/local/rocksdb
 fi
 

@@ -39,7 +39,8 @@ readonly = false
 db_name = "leveldb"
 
 # If not set, use data_dir/"db_name"_data
-db_path = ""
+#db_path = "/Users/yakkle/tmp/db_data/loopchain"
+db_path = "/home/ubuntu/icon-project/loopchain2/.storage/db_peer"
 
 # Sync commit to disk if possible
 #  0: no sync
@@ -52,8 +53,8 @@ use_replication = false
 
 # set connection buffer, you can increase them appropriately
 # more size, more memory used
-conn_read_buffer_size = 10240
-conn_write_buffer_size = 10240
+conn_read_buffer_size = 10485760
+conn_write_buffer_size = 10485760
 
 # if connection receives no data after n seconds, it may be dead, close
 # 0 to disable and not check
@@ -165,6 +166,6 @@ path = ""
 max_num = 1
 
 [tls]
-enabled = true
+enabled = false
 certificate = "test.crt"
 key = "test.key"

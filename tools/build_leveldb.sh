@@ -1,7 +1,7 @@
 #!/bin/bash
 
-SNAPPY_DIR=/usr/local/snappy
-LEVELDB_DIR=/usr/local/leveldb
+SNAPPY_DIR=$(pwd)/lib/snappy
+LEVELDB_DIR=$(pwd)/lib/leveldb
 
 ROOT_DIR=$(pwd)
 
@@ -28,7 +28,7 @@ fi
 cd $BUILD_DIR
 
 if [ ! -f $LEVELDB_DIR/lib/libleveldb.a ]; then
-    (git clone git@github.com:google/leveldb.git ; \
+    (git clone https://github.com/google/leveldb.git ; \
         cd ./leveldb && \
         git checkout 47cb9e2a211e1d7157078ba7bab536beb29e56dc && \
         patch -p0 < $SCRIPT_DIR/leveldb.patch
@@ -40,7 +40,7 @@ if [ ! -f $LEVELDB_DIR/lib/libleveldb.a ]; then
         mkdir -p $LEVELDB_DIR/include/leveldb && \
         install include/leveldb/*.h $LEVELDB_DIR/include/leveldb && \
         mkdir -p $LEVELDB_DIR/lib && \
-        cp -f libleveldb.* $LEVELDB_DIR/lib &&\
+        cp -a out-*/libleveldb.* $LEVELDB_DIR/lib &&\
         cd ..)
 else
     echo "skip install leveldb"
